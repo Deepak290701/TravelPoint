@@ -14,11 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/',(req,res) => {
    
 const conn = new Client({
-    user: "postgres",
-    password :"a",
-    host : "localhost",
+    user: "syfbrmjtdmpwtm",
+    password :"51093b60a4b1680d8a25ba146f15c9ccb966d23320bcc3fc319e1824ee0ae4ba",
+    host : "ec2-34-230-149-169.compute-1.amazonaws.com",
     port:5432,
-    database : "TravelPoints1"
+    database : "d7q778i7grjqu4"
 })
 
 conn.connect()
