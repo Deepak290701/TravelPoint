@@ -33,7 +33,7 @@ conn.connect()
     .then(results => res.send(results.rows))
     .catch(e => console.log(e))
     .finally(() => {conn.end()})
- res.send("hello world!");
+//  res.send("hello world!");
 });
 
 
