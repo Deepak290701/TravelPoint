@@ -20,4 +20,4 @@ app.get('/',(req,res) => {
 
 
 const port = "3000"
-app.listen(port,()=>{console.log(`hello world from ${port}`)});
+app.listen(process.env.PORT || port,()=>{console.log(`hello world from ${port}`)});
