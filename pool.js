@@ -1,5 +1,5 @@
 var pg = require('pg')
-var PGUSER = 'wqrew'
+var PGUSER = 'syfbrmjtdmpwtm'
 var PGDATABASE = 'd7q778i7grjqu4'
 var config = {
   user: PGUSER, // name of the user account
