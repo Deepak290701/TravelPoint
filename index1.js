@@ -16,7 +16,7 @@ app.use('/login',postRoutes.router);
 
 
 const port = "3000"
-app.listen(port,()=>{console.log(`hello world from ${port}`)});
+app.listen(process.env.PORT || port,()=>{console.log(`hello world from ${port}`)});
 
 
 
