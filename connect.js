@@ -7,16 +7,14 @@ const client = new Client({
     database : "TravelPoints1"
 })
 
-const connect  = () => {
-  return new Client({
+const cn = {
+    host: "localhost", // server name or IP address;
+    port: 5432,
+    database: "TravelPoints1",
     user: "postgres",
-    password :"a",
-    host : "localhost",
-    port:5432,
-    database : "TravelPoints1"
-})  
-}
+    password: "a"
+};
 
 module.exports = {
-    client,connect
+    client,cn
 }
