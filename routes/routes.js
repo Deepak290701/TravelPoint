@@ -4,7 +4,10 @@ const postController = require('../model/registerUser');
 const loginController = require('../model/loginUser');
 
 const router = express.Router();
-router.get('/',res.send("hello world"));
+
+router.get('/',(req,res) => {
+res.send("hello world!")
+});
 router.post('/register',postController.registerUser);
 router.post('/login',loginController.loginUser);
 
