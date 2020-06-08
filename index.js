@@ -20,22 +20,22 @@ const conn = new Client({
     database : "d7q778i7grjqu4"
 })
 
-conn.connect()
-    .then(() => console.log("successful"))
-    .then(() => conn.query("select * from Users"))
-    .then(results => console.table(results.rows))
-    .then(() => conn.query('INSERT INTO users("phoneNumber",name,password,"countryCode") VALUES (%L)',
-    ['123','abc','xyz','91']))
-    .then(() => conn.query("select * from Users"))
-    .then(results => console.table(results.rows))
-    .then(() => conn.query('DELETE FROM Users WHERE id = $1',[8]))
-    .then(() => conn.query("select * from Users"))
-    // .then(results => console.table(results.rows))
-    .then(results => res.send(results.rows))
-    .catch(e => console.log(e))
-    .finally(() => {conn.end()})
-//  res.send("hello world!");
-});
+// conn.connect()
+//     .then(() => console.log("successful"))
+//     .then(() => conn.query("select * from Users"))
+//     .then(results => console.table(results.rows))
+//     .then(() => conn.query('INSERT INTO users("phoneNumber",name,password,"countryCode") VALUES (%L)',
+//     ['123','abc','xyz','91']))
+//     .then(() => conn.query("select * from Users"))
+//     .then(results => console.table(results.rows))
+//     .then(() => conn.query('DELETE FROM Users WHERE id = $1',[8]))
+//     .then(() => conn.query("select * from Users"))
+//     // .then(results => console.table(results.rows))
+//     .then(results => res.send(results.rows))
+//     .catch(e => console.log(e))
+//     .finally(() => {conn.end()})
+// //  res.send("hello world!");
+// });
 
 
 
