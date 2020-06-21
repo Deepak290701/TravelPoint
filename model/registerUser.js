@@ -77,7 +77,7 @@ var salt = token.split("_");
                         {user: [
                             {
                                 id: req.body.id,
-                                phoneNumber = req.body.phoneNumber,
+                                phoneNumber : req.body.phoneNumber,
                                 name : req.body.name,
                                 password : req.body.password,
                                 mobileNo_verified_at: null,
