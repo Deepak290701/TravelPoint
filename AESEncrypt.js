@@ -1,31 +1,83 @@
 var aesjs = require('aes-js');
+var buffer = require('buffer/').Buffer;
+var AES = require("crypto-js/aes");
+var CryptoJS = require("crypto-js");
+const { enc } = require('crypto-js');
+var moment = require('moment')
+const crypto = require('crypto');
+// 5YXCmAfbcm4sYgoM8fT/06MjhQSBmgkox764fUmaKwY=\n
 
-var key = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-    29, 30, 31 ];
+
+const validate = (salt,encryptedData1) => {
+   const algorithm = 'aes-256-cbc';
+   const digest = 'sha1';
+   var x = salt
+   // 'fHX4xp6L9IE1YUfCLknn9w==';
+   const myBuffer = Buffer.from(x, 'base64');
+   var salt =  Int8Array.from(Buffer.from(myBuffer))
+   
+   
+   
+   
+   
+   
+   
+   const key = crypto.pbkdf2Sync("PasswordKey", salt, 1324, 32, digest);
+   let iv = crypto.pbkdf2Sync("ivSecretPassword", salt, 1324, 16  , digest);
+   
+   
+   
+   
+   
+   var encry = {
+   
+         key: key.toString('base64'), 
+         iv: iv.toString('base64'), 
+         encryptedData: encryptedData1
+         // 'DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
+     
+      }
+     
+   
+   
+   
+      iv = Buffer.from(encry.iv, 'base64');
+      let encryptedText = Buffer.from(encry.encryptedData, 'base64');
+      let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), iv);
+      let decrypted = decipher.update(encryptedText);
+      decrypted = Buffer.concat([decrypted, decipher.final()]);
+      var decr = decrypted.toString();
+   
+      
+     
+   
+   
+     var token = decr.substring(0,decr.length-14);
+     var timestamp = decr.slice(-14)
+     var timestampfinal = timestamp.substring(0,4) + '-' +
+      timestamp.substring(4,6) + '-' + timestamp.substring(6,8)  + 'T' 
+      + timestamp.substring(8,10) + ":" + timestamp.substring(10,12) + ":" + timestamp.substring(12,14) +
+       ".000Z";
+     
+   
+   var startDate = new Date(new Date().toUTCString())  
+   var remainingDate = moment(timestampfinal).diff(startDate, 'minutes');
+     
+     if(Math.abs(remainingDate)<=5){
+        return console  
+     }
+     
+     else{
+        return false
+     }
+     
+   
+}
+
+module.exports ={
+   validate
+}
+
  
-// Convert text to bytes
-var text = 'Text may be any length you wish, no padding is required.';
-var textBytes = aesjs.utils.utf8.toBytes(text);
- 
-// The counter is optional, and if omitted will begin at 1
-var aesCtr = new aesjs.ModeOfOperation.ctr(key);
-var encryptedBytes = aesCtr.encrypt(textBytes);
- 
-// To print or store the binary data, you may convert it to hex
-var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
-console.log(encryptedHex);
-// "a338eda3874ed884b6199150d36f49988c90f5c47fe7792b0cf8c7f77eeffd87
-//  ea145b73e82aefcf2076f881c88879e4e25b1d7b24ba2788"
- 
-// When ready to decrypt the hex string, convert it back to bytes
-var encryptedBytes = aesjs.utils.hex.toBytes(encryptedHex);
- 
-// The counter mode of operation maintains internal state, so to
-// decrypt a new instance must be instantiated.2
-var aesCtr = new aesjs.ModeOfOperation.ctr(key);
-var decryptedBytes = aesCtr.decrypt(encryptedBytes);
- 
-// Convert our bytes back into text
-var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
-console.log(decryptedText);
-// "Text may be any length you wish, no padding is required."
+
+
