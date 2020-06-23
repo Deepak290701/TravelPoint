@@ -3,21 +3,21 @@ const format = require('pg-format');
 let validateKey = require('../AESEncrypt')
 
 const registerUser = (req,res) => {
-var token = JSON.stringify(req.headers.validateToken);
-var salt = token.split("_");
-// 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
+// var token = JSON.stringify(req.headers.validateToken);
+// var salt = token.split("_");
+// // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
 
-    if(!(validateKey.validate(salt[0],salt[1]))){
-        return  res.json({
-            posts : [
-                {statusCode: "1000"},
-                        {message: "Unauthorized Request"},
-                        {isSuccessful: "TRUE"},
-                {user: null}
+//     if(!(validateKey.validate(salt[0],salt[1]))){
+//         return  res.json({
+//             posts : [
+//                 {statusCode: "1000"},
+//                         {message: "Unauthorized Request"},
+//                         {isSuccessful: "TRUE"},
+//                 {user: null}
 
-            ]  
-        })
-    }
+//             ]  
+//         })
+//     }
 
     setConnectionPool.connect(function (err, client, release) {
         if (err) {
@@ -69,6 +69,9 @@ var salt = token.split("_");
                         ]  
                     }) // Error in Executing Query
                   }
+                  const insQuery1 = format('INSERT INTO userstrip(id,distance, points) VALUES (%L)',
+                  [id,0,0]);
+      
                   res.json({
                     posts : [
                         {statusCode: "1001"},
