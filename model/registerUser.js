@@ -96,7 +96,7 @@ const registerUser = (req,res) => {
             const insQuery1 = format('INSERT INTO userstrip(id,distance, points) VALUES (%L)',
                   [id,0,0]);
                   client.query(insQuery1,(err,results) => {
-                    release();
+                    // release();
                   });
 
             }           
