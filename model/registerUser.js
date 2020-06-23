@@ -62,7 +62,7 @@ const registerUser = (req,res) => {
                     return res.json({
                         posts : [
                         {statusCode: "1003"},
-                        {message: "Fields cannot be blank"},
+                        {message: "Mobile Number already registered"},
                         {isSuccessful: "TRUE"},
                             {user: null}
 

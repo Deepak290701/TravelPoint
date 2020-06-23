@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/register',postRoutes.router);
 app.use('/login',postRoutes.router);
 app.use('/',postRoutes.router);
+app.use('/registerUserTrip',postRoutes.route)
 
 
 
