@@ -3,7 +3,7 @@ const format = require('pg-format');
 let validateKey = require('../AESEncrypt')
 
 const registerUser = (req,res) => {
-var token = JSON.stringify(req.headers.validateToken);
+var token = req.headers.validateToken;
 var salt = token.split("_");
 // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
 
