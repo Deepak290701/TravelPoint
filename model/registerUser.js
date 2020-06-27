@@ -4,6 +4,7 @@ let validateKey = require('../AESEncrypt')
 
 const registerUser = (req,res) => {
 var token = req.headers.validateToken;
+console.timeLog(token);
 var salt = token.split("_");
 // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
 
