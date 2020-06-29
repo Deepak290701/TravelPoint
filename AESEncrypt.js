@@ -63,8 +63,8 @@ const validate = (salt,encryptedData1) => {
    var startDate = new Date(new Date().toUTCString())  
    var remainingDate = moment(timestampfinal).diff(startDate, 'minutes');
      
-     if(Math.abs(remainingDate)<=5){
-        return console  
+     if(Math.abs(remainingDate) <= 5 && token == 'VivekYouAreAwesome'){
+        return true  
      }
      
      else{

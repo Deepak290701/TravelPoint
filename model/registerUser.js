@@ -3,17 +3,32 @@ const format = require('pg-format');
 let validateKey = require('../AESEncrypt')
 
 const registerUser = (req,res) => {
-var token =  req.get('validateToken'); 
+var token =  req.get('validateToken');
+if(token.length!=69){
+
+    return  res.json({
+        posts : [
+            {statusCode: "1000"},
+                    {message: "Unauthorized Request"},
+                    {isSuccessful: "TRUE"},
+            {user: null}
+
+        ]  
+    })
+
+
+}
 console.log(token);
 var salt = token.split("_");
 // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
 
+
     if(!(validateKey.validate(salt[0],salt[1]))){
         return  res.json({
             posts : [
-                {statusCode: "1000"},
-                        {message: "Unauthorized Request"},
-                        {isSuccessful: "TRUE"},
+                {statusCode: "1005"},
+                {message: "Invalid Token"},
+                {isSuccessful: "TRUE"},
                 {user: null}
 
             ]  
