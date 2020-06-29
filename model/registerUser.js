@@ -4,7 +4,7 @@ let validateKey = require('../AESEncrypt')
 
 const registerUser = (req,res) => {
 var token =  req.get('validateToken');
-if(token.length!=69){
+if(!(token.length==69)){
 
     return  res.json({
         posts : [
