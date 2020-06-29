@@ -8,8 +8,8 @@ if(!(token.length==69)){
 
     return  res.json({
         posts : [
-            {statusCode: "1000"},
-                    {message: "Unauthorized Request"},
+            {statusCode: "1005"},
+                    {message: "Invalid Token"},
                     {isSuccessful: "TRUE"},
             {user: null}
 
@@ -26,8 +26,8 @@ var salt = token.split("_");
     if(!(validateKey.validate(salt[0],salt[1]))){
         return  res.json({
             posts : [
-                {statusCode: "1005"},
-                {message: "Invalid Token"},
+                {statusCode: "1000"},
+                {message: "Unauthorized Request"},
                 {isSuccessful: "TRUE"},
                 {user: null}
 
