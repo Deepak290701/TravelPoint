@@ -4,7 +4,8 @@ let validateKey = require('../AESEncrypt')
 
 class registerUser {
 
-   constructor (req,res)  {
+   
+    registerUser1 =  (req,res) => {
         var token =  req.get('validateToken');
         if(!(token.length==69)){
         
