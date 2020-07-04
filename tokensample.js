@@ -1,8 +1,21 @@
-let sample = 'c12Vyni2bcnImvv4Xxwqog==_JSUh8zE3IaFdClu59UD47k8uoDU6EdLsTGx/Tetzf18=';
-console.log(sample.length);
+class Hero {
+    constructor(name, level) {
+        this.name = name;
+        this.level = level;
+    }
 
-let sample1 = '+1eFQnllenLVR31Yypk16Q==_SgfvkDrAqfcphIriBXVGbgSd43TNBGa5HaJHGpub5/0='
-console.log(sample1.length);
+    // Adding a method to the constructor
+    greet() {
+        return `${this.name} says hello.`;
+    }
+}
 
-let sample2 = 'VtCUzfgPtGLsqIOayf4/Ag==_USmM6bfX9z/jMnEtpfWYM809GwoOjDKLhcHHUYLXATo='
-console.log(sample2.length);
+const hero1 = new Hero('Varg', 1);
+
+
+
+module.exports ={
+    hero1
+}
+
+
