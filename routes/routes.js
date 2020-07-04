@@ -10,7 +10,7 @@ router.get('/',(req,res) => {
 res.send("hello world!")
 });
 
-router.post('/register/v1',postController.registerUser1);
+router.post('/register/v1',postController.registerUser);
 router.post('/login',loginController.loginUser);
 router.post('/registerUserTrip',userTripController.registerUserTrip);
 

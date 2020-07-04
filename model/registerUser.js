@@ -124,7 +124,7 @@ class registerUser {
 
 }
 
-let registerUser1 = registerUser(req,res);
+// let registerUser1 = registerUser(req,res);
 module.exports ={
-    registerUser1
+    registerUser
 }
