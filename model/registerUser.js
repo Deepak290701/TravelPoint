@@ -4,8 +4,11 @@ let validateKey = require('../AESEncrypt')
 
 class registerUser {
 
+    constructor () {
+       
+    }
    
-    registerUser1 =  (req,res) => {
+   async registerUser1 (req,res) {
         var token =  req.get('validateToken');
         if(!(token.length==69)){
         
@@ -125,7 +128,7 @@ class registerUser {
 
 }
 
-//  let registerUser1 = new registerUser(req,res);
+ let registerUserObj = new registerUser();
 module.exports ={
-    registerUser
+    registerUserObj
 }
