@@ -30,17 +30,17 @@ class registerUser {
         // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
         
         
-            // if(!(validateKey.validate(salt[0],salt[1]))){
-            //     return  res.json({
-            //         posts : [
-            //             {statusCode: "1000"},
-            //             {message: "Unauthorized Request"},
-            //             {isSuccessful: "TRUE"},
-            //             {user: null}
+            if(!(validateKey.validate(salt[0],salt[1]))){
+                return  res.json({
+                    posts : [
+                        {statusCode: "1000"},
+                        {message: "Unauthorized Request"},
+                        {isSuccessful: "TRUE"},
+                        {user: null}
         
-            //         ]  
-            //     })
-            // }
+                    ]  
+                })
+            }
         
             setConnectionPool.connect(function (err, client, release) {
                 if (err) {

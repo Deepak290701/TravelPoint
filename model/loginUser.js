@@ -10,40 +10,40 @@ class loginUser {
     async loginUser1 (req,res) {
         setConnectionPool.connect(function (err, client, release) {
     
-    //         var token = JSON.stringify(req.headers.validateToken);
-    //         var salt = token.split("_");
+            var token = JSON.stringify(req.headers.validateToken);
+            var salt = token.split("_");
     
     
-    //         var token =  req.get('validateToken');
+            var token =  req.get('validateToken');
             
-    // if(!(token.length==69)){
+    if(!(token.length==69)){
     
-    //     return  res.json({
-    //         posts : [
-    //             {statusCode: "1005"},
-    //                     {message: "Invalid Token"},
-    //                     {isSuccessful: "TRUE"},
-    //             {user: null}
+        return  res.json({
+            posts : [
+                {statusCode: "1005"},
+                        {message: "Invalid Token"},
+                        {isSuccessful: "TRUE"},
+                {user: null}
     
-    //         ]  
-    //     })
+            ]  
+        })
     
     
-    // }
+    }
     
     // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
     
-            // if(!(validateKey.validate(salt[0],salt[1]))){
-            //     return  res.json({
-            //         posts : [
-            //             {statusCode: "1000"},
-            //             {message: "Unauthorized Request"},
-            //             {isSuccessful: "TRUE"},
-            //             {user: null}
+            if(!(validateKey.validate(salt[0],salt[1]))){
+                return  res.json({
+                    posts : [
+                        {statusCode: "1000"},
+                        {message: "Unauthorized Request"},
+                        {isSuccessful: "TRUE"},
+                        {user: null}
         
-            //         ]  
-            //     })
-            // }
+                    ]  
+                })
+            }
     
     
             if (err) {
