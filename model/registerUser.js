@@ -9,6 +9,8 @@ class registerUser {
     }
    
    async registerUser1 (req,res) {
+
+
         var token =  req.get('validateToken');
         if(!(token.length==69)){
         
@@ -28,17 +30,17 @@ class registerUser {
         // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
         
         
-            // if(!(validateKey.validate(salt[0],salt[1]))){
-            //     return  res.json({
-            //         posts : [
-            //             {statusCode: "1000"},
-            //             {message: "Unauthorized Request"},
-            //             {isSuccessful: "TRUE"},
-            //             {user: null}
+            if(!(validateKey.validate(salt[0],salt[1]))){
+                return  res.json({
+                    posts : [
+                        {statusCode: "1000"},
+                        {message: "Unauthorized Request"},
+                        {isSuccessful: "TRUE"},
+                        {user: null}
         
-            //         ]  
-            //     })
-            // }
+                    ]  
+                })
+            }
         
             setConnectionPool.connect(function (err, client, release) {
                 if (err) {
@@ -53,11 +55,29 @@ class registerUser {
                     }) // Error in aquiring connection
                   }
                 else{
+
+                    if(typeof req.body.id == 'undefined' ||typeof req.body.phoneNumber=='undefined' ||typeof req.body.name=='undefined' || 
+                    typeof req.body.password =='undefined' ||typeof req.body.countryCode =='undefined' ){
+
+                        return  res.json({
+                            posts : [
+                                {statusCode: "1006"},
+                                {message: "Mandatory values missing"},
+                                {isSuccessful: "TRUE"},
+                                {user: null}
+            
+                            ]  
+                        }) 
+
+                    }
                     const id = req.body.id;
                     const phoneNumber = req.body.phoneNumber;
                     const name = req.body.name;
                     const password = req.body.password;
                     const countryCode = req.body.countryCode;
+
+
+
         
                     if(phoneNumber == '' || name=='' || password=='' || countryCode==''){
                         return  res.json({

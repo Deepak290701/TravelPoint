@@ -1,3 +1,6 @@
 const TokenSample = require('./tokensample');
-
-console.log(TokenSample.hero1.greet())
+var x;
+if(typeof x == 'undefined'){
+    console.log("hii");
+}
+console.log(typeof x)

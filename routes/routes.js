@@ -11,7 +11,7 @@ res.send("hello world!")
 });
 
 router.post('/register/v1',postController.registerUserObj.registerUser1);
-router.post('/login',loginController.loginUser);
+router.post('/login/v1',loginController.loginUserObj.loginUser1);
 router.post('/registerUserTrip',userTripController.registerUserTrip);
 
 
