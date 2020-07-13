@@ -11,7 +11,6 @@ const currHour = date.getHours().toString();
 const currMinutes = date.getMinutes().toString();
 const currSeconds = date.getSeconds().toString();
 const currMilliseconds = date.getMilliseconds().toString();
-const currSeconds = date.getSeconds().toString();
 
 return currDate+currMonth+currYear+currHour+currMinutes+currSeconds+currMilliseconds;
 
