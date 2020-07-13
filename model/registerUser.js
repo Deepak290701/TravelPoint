@@ -71,7 +71,16 @@ class registerUser {
                         }) 
 
                     }
-                    const id = "User" + randomUserId.getCurrentDateandTime;
+                    const date = new Date();
+                const currDate = date.getDate().toString();
+                const currMonth = (date.getMonth+1).toString();
+                const currYear = date.getFullYear().toString();
+                const currHour = date.getHours().toString();
+                const currMinutes = date.getMinutes().toString();
+                const currSeconds = date.getSeconds().toString();
+                const currMilliseconds = date.getMilliseconds().toString();
+
+                    const id = "User" + currDate+currMonth+currYear+currHour+currMinutes+currSeconds+currMilliseconds;
                     // req.body.id;
                     // 
                     const phoneNumber = req.body.phoneNumber;
