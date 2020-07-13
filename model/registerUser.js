@@ -71,8 +71,9 @@ class registerUser {
                         }) 
 
                     }
-                    const id = req.body.id;
-                    // "User" + randomUserId.getCurrentDateandTime;
+                    const id = "User" + randomUserId.getCurrentDateandTime;
+                    // req.body.id;
+                    // 
                     const phoneNumber = req.body.phoneNumber;
                     const name = req.body.name;
                     const password = req.body.password;
