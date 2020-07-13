@@ -1,6 +1,7 @@
 const setConnectionPool = require('../pool');
 const format = require('pg-format');
 let validateKey = require('../AESEncrypt')
+const randomUserId = require('../utils');
 
 class registerUser {
 
@@ -11,36 +12,36 @@ class registerUser {
    async registerUser1 (req,res) {
 
 
-        var token =  req.get('validateToken');
-        if(!(token.length==69)){
+        // var token =  req.get('validateToken');
+        // if(!(token.length==69)){
         
-            return  res.json({
-                posts : [
-                    {statusCode: "1005"},
-                            {message: "Invalid Token"},
-                            {isSuccessful: "TRUE"},
-                    {user: null}
+        //     return  res.json({
+        //         posts : [
+        //             {statusCode: "1005"},
+        //                     {message: "Invalid Token"},
+        //                     {isSuccessful: "TRUE"},
+        //             {user: null}
         
-                ]  
-            })
-        
-        
-        }
-        var salt = token.split("_");
-        // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
+        //         ]  
+        //     })
         
         
-            if(!(validateKey.validate(salt[0],salt[1]))){
-                return  res.json({
-                    posts : [
-                        {statusCode: "1000"},
-                        {message: "Unauthorized Request"},
-                        {isSuccessful: "TRUE"},
-                        {user: null}
+        // }
+        // var salt = token.split("_");
+        // // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
         
-                    ]  
-                })
-            }
+        
+        //     if(!(validateKey.validate(salt[0],salt[1]))){
+        //         return  res.json({
+        //             posts : [
+        //                 {statusCode: "1000"},
+        //                 {message: "Unauthorized Request"},
+        //                 {isSuccessful: "TRUE"},
+        //                 {user: null}
+        
+        //             ]  
+        //         })
+        //     }
         
             setConnectionPool.connect(function (err, client, release) {
                 if (err) {
@@ -70,7 +71,7 @@ class registerUser {
                         }) 
 
                     }
-                    const id = req.body.id;
+                    const id = "User" + randomUserId.getCurrentDateandTime;
                     const phoneNumber = req.body.phoneNumber;
                     const name = req.body.name;
                     const password = req.body.password;
