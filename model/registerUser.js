@@ -57,7 +57,7 @@ class registerUser {
                   }
                 else{
 
-                    if(typeof req.body.id == 'undefined' ||typeof req.body.phoneNumber=='undefined' ||typeof req.body.name=='undefined' || 
+                    if(typeof req.body.phoneNumber=='undefined' ||typeof req.body.name=='undefined' || 
                     typeof req.body.password =='undefined' ||typeof req.body.countryCode =='undefined' ){
 
                         return  res.json({
@@ -122,7 +122,7 @@ class registerUser {
                                 {isSuccessful: "TRUE"},
                                 {user: [
                                     {
-                                        id: req.body.id,
+                                        id: id,
                                         phoneNumber : req.body.phoneNumber,
                                         name : req.body.name,
                                         password : req.body.password,
