@@ -104,7 +104,7 @@ class registerUser {
         
                             return res.json({
                                 posts : [
-                                {statusCode: "1003"},
+                                {statusCode: err},
                                 {message: "Mobile Number already registered"},
                                 {isSuccessful: "TRUE"},
                                     {user: null}
