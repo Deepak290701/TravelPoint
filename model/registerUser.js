@@ -80,7 +80,7 @@ class registerUser {
                 const currSeconds = date.getSeconds().toString();
                 const currMilliseconds = date.getMilliseconds().toString();
 
-                    const id = "User" + currDate+currMonth+currYear+currHour+currMinutes+currSeconds+currMilliseconds;
+                    const id = "User" + currDate+currYear+currHour+currMinutes+currSeconds+currMilliseconds;
                     // req.body.id;
                     // 
                     const phoneNumber = req.body.phoneNumber;
