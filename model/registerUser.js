@@ -12,8 +12,9 @@ class registerUser {
    async registerUser1 (req,res) {
 
 
-        var token =  req.body.validateToken;
-        //req.get('validateToken');
+        var token = req.get('validateToken');
+        // req.body.validateToken;
+        //
 
         // if(!(token.length==69)){
         
