@@ -69,6 +69,7 @@ const validate = (salt,encryptedData1) => {
      
      else{
         return false
+        console.log(token);
      }
      
    
