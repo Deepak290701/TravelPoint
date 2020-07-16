@@ -68,7 +68,7 @@ const validate = (salt,encryptedData1) => {
      }
      
      else{
-      Math.abs(remainingDate);
+      console.log(Math.abs(remainingDate));
       console.log(token);
         return false
         
