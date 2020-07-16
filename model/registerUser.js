@@ -33,7 +33,7 @@ class registerUser {
         // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
         
         
-            if(!(validateKey.validate(salt[0],salt[1]))){
+            if(!(validateKey.validate(salt[0].concat(" "),salt[1]))){
                 return  res.json({
                     posts : [
                         {statusCode: "1000"},
