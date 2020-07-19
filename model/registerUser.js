@@ -92,7 +92,7 @@ class registerUser {
                     phoneNumber);
 
                     client.query(insQuery2,(err,results) => {
-                        if(results.rowCount==1){
+                        if(results.rowCount>=1){
                             return res.json({
                                 
                                 isSuccessful: true,
