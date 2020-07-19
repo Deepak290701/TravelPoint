@@ -113,7 +113,7 @@ class registerUser {
                                 isSuccessful: true,
                                 statusCode: 1001,
                                 message: "Registration is Successful",
-                                user: [
+                                user: 
                                     {
                                         id: id,
                                         name : req.body.name,
@@ -125,7 +125,7 @@ class registerUser {
                                         updated_at:null,
                                         
                                     }
-                                ]}
+                                }
                            
                         )
                     });
