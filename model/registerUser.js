@@ -103,15 +103,8 @@ class registerUser {
                                 })
                             }
                         }
-                        else{
-
-                        }
-                    
-
-                    })
-
-
-                    const insQuery = format('INSERT INTO users("phoneNumber",name,password,id,"countryCode") VALUES (%L)',
+                        else {
+                            const insQuery = format('INSERT INTO users("phoneNumber",name,password,id,"countryCode") VALUES (%L)',
                     [phoneNumber,name,password,id,countryCode]);
         
                     client.query(insQuery,(err,results) => {
@@ -152,13 +145,16 @@ class registerUser {
                            
                         )
                     });
-        
-                    const insQuery1 = format('INSERT INTO userstrip(id,distance, points) VALUES (%L)',
-                          [id,0,0]);
-                          client.query(insQuery1,(err,results) => {
-                            // release();
-                          });
-        
+
+
+                        }
+                        const insQuery1 = format('INSERT INTO userstrip(id,distance, points) VALUES (%L)',
+                        [id,0,0]);
+                        client.query(insQuery1,(err,results) => {
+                          // release();
+                        });
+                    
+                    });
                     }           
               });
         
