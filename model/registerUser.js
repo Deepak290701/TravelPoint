@@ -19,26 +19,26 @@ class registerUser {
     
             if(!(validateKey.validate(salt[0].concat(" "),salt[1]))){
                 return  res.json({
-                    posts : [
-                        {isSuccessful: true},
-                        {statusCode: 1000},
-                        {message: "Unauthorized Request"},
-                        {user: null}
+                   
+                        isSuccessful: true,
+                        statusCode: 1000,
+                        message: "Unauthorized Request",
+                        user: null
         
-                    ]  
+                  
                 })
             }
         
             setConnectionPool.connect(function (err, client, release) {
                 if (err) {
                     return  res.json({
-                        posts : [
-                            {isSuccessful: true},
-                            {statusCode: 1004},
-                            {message: "Something went wrong.Please Try again later"},
-                            {user: null}
+                       
+                            isSuccessful: true,
+                            statusCode: 1004,
+                            message: "Something went wrong.Please Try again later",
+                            user: null
         
-                        ]  
+                          
                     }) // Error in aquiring connection
                   }
                 else{
@@ -47,13 +47,13 @@ class registerUser {
                     typeof req.body.password =='undefined' ||typeof req.body.countryCode =='undefined' ){
 
                         return  res.json({
-                            posts : [
-                                {isSuccessful: true},
-                                {statusCode: 1006},
-                                {message: "Mandatory values missing"},
-                                {user: null}
+                          
+                                isSuccessful: true,
+                                statusCode: 1006,
+                                message: "Mandatory values missing",
+                                user: null
             
-                            ]  
+                             
                         }) 
 
                     }
@@ -77,13 +77,13 @@ class registerUser {
         
                     if(phoneNumber == '' || name=='' || password=='' || countryCode==''){
                         return  res.json({
-                            posts : [
-                                {isSuccessful: true},
-                                {statusCode: 1002},
-                                {message: "Fields cannot be blank"},
-                                {user: null}
+                          
+                                isSuccessful: true,
+                                statusCode: 1002,
+                                message: "Fields cannot be blank",
+                                user: null
             
-                            ]  
+                              
                         }) 
                     }
         
@@ -97,23 +97,23 @@ class registerUser {
                         if (err) {
         
                             return res.json({
-                                posts : [
-                                {isSuccessful: true},
-                                {statusCode: 1003},
-                                {message: "Mobile Number already registered"},
-                                    {user: null}
+                                
+                                isSuccessful: true,
+                                statusCode: 1003,
+                                message: "Mobile Number already registered",
+                                user: null
         
-                                ]  
+                                
                             }) // Error in Executing Query
                           }
                           
               
                           res.json({
-                            posts : [
-                                {isSuccessful: true},
-                                {statusCode: 1001},
-                                {message: "Registration is Successful"},
-                                {user: [
+                           
+                                isSuccessful: true,
+                                statusCode: 1001,
+                                message: "Registration is Successful",
+                                user: [
                                     {
                                         id: id,
                                         name : req.body.name,
@@ -126,8 +126,8 @@ class registerUser {
                                         
                                     }
                                 ]}
-                            ]
-                        })
+                           
+                        )
                     });
         
                     const insQuery1 = format('INSERT INTO userstrip(id,distance, points) VALUES (%L)',
