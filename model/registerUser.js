@@ -20,9 +20,9 @@ class registerUser {
             if(!(validateKey.validate(salt[0].concat(" "),salt[1]))){
                 return  res.json({
                     posts : [
+                        {isSuccessful: true},
                         {statusCode: 1000},
                         {message: "Unauthorized Request"},
-                        {isSuccessful: true},
                         {user: null}
         
                     ]  
@@ -33,9 +33,9 @@ class registerUser {
                 if (err) {
                     return  res.json({
                         posts : [
+                            {isSuccessful: true},
                             {statusCode: 1004},
                             {message: "Something went wrong.Please Try again later"},
-                            {isSuccessful: true},
                             {user: null}
         
                         ]  
@@ -48,9 +48,9 @@ class registerUser {
 
                         return  res.json({
                             posts : [
+                                {isSuccessful: true},
                                 {statusCode: 1006},
                                 {message: "Mandatory values missing"},
-                                {isSuccessful: true},
                                 {user: null}
             
                             ]  
@@ -78,9 +78,9 @@ class registerUser {
                     if(phoneNumber == '' || name=='' || password=='' || countryCode==''){
                         return  res.json({
                             posts : [
+                                {isSuccessful: true},
                                 {statusCode: 1002},
                                 {message: "Fields cannot be blank"},
-                                {isSuccessful: true},
                                 {user: null}
             
                             ]  
@@ -98,9 +98,9 @@ class registerUser {
         
                             return res.json({
                                 posts : [
+                                {isSuccessful: true},
                                 {statusCode: 1003},
                                 {message: "Mobile Number already registered"},
-                                {isSuccessful: true},
                                     {user: null}
         
                                 ]  
@@ -110,9 +110,9 @@ class registerUser {
               
                           res.json({
                             posts : [
+                                {isSuccessful: true},
                                 {statusCode: 1001},
                                 {message: "Registration is Successful"},
-                                {isSuccessful: true},
                                 {user: [
                                     {
                                         id: id,
