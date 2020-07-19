@@ -13,33 +13,16 @@ class registerUser {
 
 
         var token = req.get('validateToken');
-        // req.body.validateToken;
-        //
-
-        // if(!(token.length==69)){
-        
-        //     return  res.json({
-        //         posts : [
-        //             {statusCode: "1005"},
-        //                     {message: "Invalid Token"},
-        //                     {isSuccessful: "TRUE"},
-        //             {user: null}
-        
-        //         ]  
-        //     })
-        
-        
-        // }
+     
         var salt = token.split("_");
         // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
-        
-        
+    
             if(!(validateKey.validate(salt[0].concat(" "),salt[1]))){
                 return  res.json({
                     posts : [
-                        {statusCode: "1000"},
+                        {statusCode: 1000},
                         {message: "Unauthorized Request"},
-                        {isSuccessful: "TRUE"},
+                        {isSuccessful: true},
                         {user: null}
         
                     ]  
@@ -50,9 +33,9 @@ class registerUser {
                 if (err) {
                     return  res.json({
                         posts : [
-                            {statusCode: "1004"},
+                            {statusCode: 1004},
                             {message: "Something went wrong.Please Try again later"},
-                            {isSuccessful: "TRUE"},
+                            {isSuccessful: true},
                             {user: null}
         
                         ]  
@@ -65,9 +48,9 @@ class registerUser {
 
                         return  res.json({
                             posts : [
-                                {statusCode: "1006"},
+                                {statusCode: 1006},
                                 {message: "Mandatory values missing"},
-                                {isSuccessful: "TRUE"},
+                                {isSuccessful: true},
                                 {user: null}
             
                             ]  
@@ -84,8 +67,6 @@ class registerUser {
                 const currMilliseconds = date.getMilliseconds().toString();
 
                     const id = "User" + currDate+currYear+currHour+currMinutes+currSeconds+currMilliseconds;
-                    // req.body.id;
-                    // 
                     const phoneNumber = req.body.phoneNumber;
                     const name = req.body.name;
                     const password = req.body.password;
@@ -97,9 +78,9 @@ class registerUser {
                     if(phoneNumber == '' || name=='' || password=='' || countryCode==''){
                         return  res.json({
                             posts : [
-                                {statusCode: "1002"},
+                                {statusCode: 1002},
                                 {message: "Fields cannot be blank"},
-                                {isSuccessful: "TRUE"},
+                                {isSuccessful: true},
                                 {user: null}
             
                             ]  
@@ -117,9 +98,9 @@ class registerUser {
         
                             return res.json({
                                 posts : [
-                                {statusCode: err},
+                                {statusCode: 1003},
                                 {message: "Mobile Number already registered"},
-                                {isSuccessful: "TRUE"},
+                                {isSuccessful: true},
                                     {user: null}
         
                                 ]  
@@ -129,20 +110,20 @@ class registerUser {
               
                           res.json({
                             posts : [
-                                {statusCode: "1001"},
+                                {statusCode: 1001},
                                 {message: "Registration is Successful"},
-                                {isSuccessful: "TRUE"},
+                                {isSuccessful: true},
                                 {user: [
                                     {
                                         id: id,
-                                        phoneNumber : req.body.phoneNumber,
                                         name : req.body.name,
+                                        countryCode : req.body.countryCode,
+                                        mobileNo : req.body.phoneNumber,
                                         password : req.body.password,
                                         mobileNo_verified_at: null,
                                         created_at:null,
                                         updated_at:null,
-                                        registration_type:null,
-                                        countryCode : req.body.countryCode
+                                        
                                     }
                                 ]}
                             ]
