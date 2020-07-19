@@ -88,22 +88,22 @@ class registerUser {
                     }
         
         
-                    // const insQuery2 = format('SELECT * FROM users WHERE "phoneNumber" = (%L)',
-                    // phoneNumber);
+                    const insQuery2 = format('SELECT * FROM users WHERE "phoneNumber" = (%L)',
+                    phoneNumber);
 
-                    // client.query(insQuery2,(err,results) => {
-                    //   release();
-                    //         if(results.rowCount>=1){
-                    //             return res.json({
+                    client.query(insQuery2,(err,results) => {
+                      release();
+                            if(results.rowCount>=1){
+                                return res.json({
                                     
-                    //                 isSuccessful: true,
-                    //                 statusCode: 1003,
-                    //                 message: "Mobile Number already registered",
-                    //                 user: null
-                    //             })
-                    //         }
+                                    isSuccessful: true,
+                                    statusCode: 1003,
+                                    message: "Mobile Number already registered",
+                                    user: null
+                                })
+                            }
                         
-                    // });
+                    });
 
 
                     const insQuery = format('INSERT INTO users("phoneNumber",name,password,id,"countryCode") VALUES (%L)',
