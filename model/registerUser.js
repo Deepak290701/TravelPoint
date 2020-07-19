@@ -92,7 +92,7 @@ class registerUser {
                     phoneNumber);
 
                     client.query(insQuery2,(err,results) => {
-                        if(typeof results.rowCount != "undefined"){
+                        if(typeof results != "undefined"){
                             if(results.rowCount>=1){
                                 return res.json({
                                     
@@ -104,7 +104,7 @@ class registerUser {
                             }
                         }
                         else{
-                            
+
                         }
                     
 
