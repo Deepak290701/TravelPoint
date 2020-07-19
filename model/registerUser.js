@@ -92,15 +92,21 @@ class registerUser {
                     phoneNumber);
 
                     client.query(insQuery2,(err,results) => {
-                        if(results.rowCount>=1){
-                            return res.json({
-                                
-                                isSuccessful: true,
-                                statusCode: 1003,
-                                message: "Mobile Number already registered",
-                                user: null
-                            })
+                        if(typeof results.rowCount != "undefined"){
+                            if(results.rowCount>=1){
+                                return res.json({
+                                    
+                                    isSuccessful: true,
+                                    statusCode: 1003,
+                                    message: "Mobile Number already registered",
+                                    user: null
+                                })
+                            }
                         }
+                        else{
+                            
+                        }
+                    
 
                     })
 
