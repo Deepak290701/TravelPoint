@@ -10,21 +10,9 @@ class loginUser {
     async loginUser1 (req,res) {
         setConnectionPool.connect(function (err, client, release) {
     
-            var token = JSON.stringify(req.headers.validateToken);
+            var token = req.get('validateToken');
             var salt = token.split("_");
-    
-    
-            var token =  req.get('validateToken');
-            
-    if(!(token.length==69)){
-    
-        return  res.json({
-                isSuccessful: true,
-                statusCode: 1005,
-                message: "Invalid Token",
-                user: null
-        });
-    }
+
     
     // 'fHX4xp6L9IE1YUfCLknn9w==','DcV0VRYa3D48MhvAWj1qtxpHt6TtSbcNAbXX5UfhrSg='
     
