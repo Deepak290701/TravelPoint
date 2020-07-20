@@ -95,12 +95,14 @@ class registerUser {
                         release();
         
                         if (err) {
+
+                            
         
                             return res.json({
                                 
                                 isSuccessful: true,
                                 statusCode: 1008,
-                                message: "Mobile Number yalready registered.",
+                                message: "Mobile Number already registered.",
                                 user: null
         
                                 

@@ -90,13 +90,7 @@ class loginUser {
                         })
                       }
                       else{
-                        // res.json({
-                         
-                        //         isSuccessful: true,
-                        //         statusCode: 1002,
-                        //         message: "Invalid Mobile Number or Password",
-                        //         user: null
-                        // })  
+                     
                       
                         const insQuery1 = format('SELECT * FROM users WHERE "phoneNumber" = (%L)',
                         phoneNumber,password);
