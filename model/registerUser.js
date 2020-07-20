@@ -100,7 +100,7 @@ class registerUser {
                                 
                                 isSuccessful: true,
                                 statusCode: 1008,
-                                message: "Mobile Number already registered.",
+                                message: "Mobile Number yalready registered.",
                                 user: null
         
                                 

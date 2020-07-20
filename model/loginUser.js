@@ -90,14 +90,37 @@ class loginUser {
                         })
                       }
                       else{
-                        res.json({
+                        // res.json({
                          
-                                isSuccessful: true,
-                                statusCode: 1002,
-                                message: "Invalid Mobile Number or Password",
-                                user: null
-                        })  
-                      }
+                        //         isSuccessful: true,
+                        //         statusCode: 1002,
+                        //         message: "Invalid Mobile Number or Password",
+                        //         user: null
+                        // })  
+                      
+                        const insQuery1 = format('SELECT * FROM users WHERE "phoneNumber" = (%L)',
+                        phoneNumber,password);
+
+                        client.query(insQuery1,(err,results) => {
+                            if(results.rowCount==0){
+                                res.json({
+                                    
+                                        isSuccessful: true,
+                                        statusCode: 1003,
+                                        message: "This mobile Number is not registered with us. Please Sign Up.",
+                                        user:null
+                        })
+                    
+                    }
+                    else{
+                        res.json({
+                                    
+                            isSuccessful: true,
+                            statusCode: 1002,
+                            message: "Invalid Mobile Number or Password",
+                            user:null
+            })
+                    }
                    
                 });
                 }           
