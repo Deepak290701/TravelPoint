@@ -123,11 +123,13 @@ class loginUser {
                     }
                    
                 });
-                }           
+        }           
           });
     
     } 
     
+        }
+        )}
 }
 
 let loginUserObj = new loginUser();
