@@ -101,7 +101,7 @@ class registerUser {
                             return res.json({
                                 
                                 isSuccessful: true,
-                                statusCode: 1008,
+                                statusCode: 1003,
                                 message: "Mobile Number already registered.",
                                 user: null
         
