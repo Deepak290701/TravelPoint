@@ -60,7 +60,7 @@ class loginUser {
                     if (err) {
                         return res.json({
                                 isSuccessful: true,
-                                statusCode: 1003,
+                                statusCode: 1005,
                                 message: "This mobile Number is not registered with us. Please Sign Up.",
                                 user: null
      
@@ -100,7 +100,7 @@ class loginUser {
                                 res.json({
                                     
                                         isSuccessful: true,
-                                        statusCode: 1003,
+                                        statusCode: 1005,
                                         message: "This mobile Number is not registered with us. Please Sign Up.",
                                         user:null
                         })

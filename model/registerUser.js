@@ -101,9 +101,19 @@ class registerUser {
                             return res.json({
                                 
                                 isSuccessful: true,
-                                statusCode: 1003,
-                                message: "Mobile Number already registered.",
-                                user: null
+                                statusCode: 1001,
+                                message: "Registration is successful",
+                                user:  {
+                                    id: id,
+                                    name : req.body.name,
+                                    countryCode : req.body.countryCode,
+                                    mobileNo : req.body.phoneNumber,
+                                    password : req.body.password,
+                                    mobileNo_verified_at: null,
+                                    created_at:null,
+                                    updated_at:null,
+                                    
+                                }
         
                                 
                             }) // Error in Executing Query
